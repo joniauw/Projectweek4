@@ -1,6 +1,6 @@
 # build stage
 FROM quay.io/jitesoft/node:latest as build-stage
-WORKDIR /shoping-cart
+WORKDIR /shopping-cart
 COPY shopping-cart/package*.json ./
 RUN npm install
 COPY . .
