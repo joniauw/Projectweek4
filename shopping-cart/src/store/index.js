@@ -20,9 +20,9 @@ export default new Vuex.Store({
       partner: false
     },
     endpoints: {
-      login: "http://localhost:3000/login",
-      partnercheck: "http://localhost:8002/check",
-      products: "http://localhost:8002/products",
+      login: "http://projectweek-4-ucllteam04.ucll-ocp-40cb0df2b03969eabb3fac6e80373775-0000.eu-de.containers.appdomain.cloud/login",
+      partnercheck: "http://project-week-4-spring-boot-products-ucllteam04.ucll-ocp-40cb0df2b03969eabb3fac6e80373775-0000.eu-de.containers.appdomain.cloud/check",
+      products: "http://project-week-4-spring-boot-products-ucllteam04.ucll-ocp-40cb0df2b03969eabb3fac6e80373775-0000.eu-de.containers.appdomain.cloud/products",
     },
   },
   mutations: {
