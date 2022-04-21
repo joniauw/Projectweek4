@@ -15,6 +15,7 @@
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item" href="#">Account Settings</a>
+              <a v-if="isPartner" @click="onRegisterClicked" class="dropdown-item" href="#">Register Product</a>
               <a @click="onLogoutClicked" class="dropdown-item">Logout {{ userEmail }}</a>
             </div>
           </div>
@@ -39,6 +40,9 @@ export default {
     isAuthenticated() {
       return this.$store.state.user.isAuthenticated;
     },
+    isPartner() {
+      return this.$store.state.user.partner;
+    },
   },
   methods: {
     onLoginClicked() {
@@ -46,6 +50,10 @@ export default {
     },
     onLogoutClicked() {
       this.$store.commit("logout");
+    },
+    onRegisterClicked() {
+      let obj = { 'description': 'description', 'id': parseInt("1"), 'price': parseInt("1000"), 'quantity': parseInt("10"), 'thumbnail_url': "thumbnail_url", 'title': "title" }
+      this.$store.dispatch("registerProduct", obj);
     },
     getUserName() {
       return this.$store.state.user.name;
