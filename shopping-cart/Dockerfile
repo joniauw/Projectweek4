@@ -1,7 +1,7 @@
 # build stage
 FROM quay.io/jitesoft/node:latest as build-stage
-WORKDIR shopping-cart/app
-COPY shopping-cart/package*.json ./
+WORKDIR /app
+COPY package*.json ./
 RUN npm install
 COPY . .
 RUN npm run build
@@ -9,7 +9,7 @@ RUN npm run build
 # production stage
 FROM quay.io/jitesoft/nginx:latest
 COPY ./nginx.conf /etc/nginx/nginx.conf
-WORKDIR Projectweek4/code
-COPY --from=build-stage /shopping-cart/dist .
+WORKDIR /code
+COPY --from=build-stage /app/dist .
 EXPOSE 8080:8080
 CMD ["nginx", "-g", "daemon off;"]
